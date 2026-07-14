@@ -20,7 +20,12 @@ function renderCounter() {
   const btnInc = document.getElementById("btn-increment");
 
   display.textContent = counterState.value;
-  display.style.color = counterState.value > 0 ? "#48bb78" : counterState.value < 0 ? "#fc8181" : "#2d3748";
+  display.style.color =
+    counterState.value > 0
+      ? "#48bb78"
+      : counterState.value < 0
+        ? "#fc8181"
+        : "#2d3748";
 
   btnDec.disabled = counterState.value <= counterState.min;
   btnInc.disabled = counterState.value >= counterState.max;
@@ -50,17 +55,19 @@ console.log("----- live preview -----");
 
 const MAX_CHARS = 150;
 
-document.getElementById("bio-input").addEventListener("input", function (event) {
-  const value = event.target.value;
-  const count = value.length;
-  const remaining = MAX_CHARS - count;
+document
+  .getElementById("bio-input")
+  .addEventListener("input", function (event) {
+    const value = event.target.value;
+    const count = value.length;
+    const remaining = MAX_CHARS - count;
 
-  const info = document.getElementById("char-info");
-  info.textContent = `${count} / ${MAX_CHARS}`;
-  info.className = remaining <= 20 ? "char-info warn" : "char-info";
+    const info = document.getElementById("char-info");
+    info.textContent = `${count} / ${MAX_CHARS}`;
+    info.className = remaining <= 20 ? "char-info warn" : "char-info";
 
-  console.log("chars typed:", count);
-});
+    console.log("chars typed:", count);
+  });
 
 console.log("----- todo list -----");
 
@@ -84,7 +91,7 @@ function renderTodo() {
       (item) => `<div class="todo-item ${item.done ? "done" : ""}">
         <span data-id="${item.id}">${item.title}</span>
         <button class="todo-delete" data-id="${item.id}">×</button>
-      </div>`
+      </div>`,
     )
     .join("");
 
@@ -127,8 +134,10 @@ function addTodo() {
 
 document.getElementById("btn-add").addEventListener("click", addTodo);
 
-document.getElementById("todo-input").addEventListener("keydown", function (event) {
-  if (event.key === "Enter") addTodo();
-});
+document
+  .getElementById("todo-input")
+  .addEventListener("keydown", function (event) {
+    if (event.key === "Enter") addTodo();
+  });
 
 renderTodo();
