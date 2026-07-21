@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lesson 13</title>
+    <style>
+      body {
+        font-family: sans-serif;
+        padding: 40px;
+        max-width: 600px;
+      }
+      h2 {
+        margin-top: 48px;
+      }
+      section {
+        border: 1px solid #e2e8f0;
+        border-radius: 8px;
+        padding: 20px;
+        margin-bottom: 24px;
+      }
+
+      /* counter */
+      .counter-value {
+        font-size: 64px;
+        font-weight: bold;
+        text-align: center;
+        margin: 16px 0;
+        color: #2d3748;
+      }
+      .counter-buttons {
+        display: flex;
+        gap: 8px;
+        justify-content: center;
+      }
+      button {
+        padding: 8px 20px;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 16px;
+        background: #4a90e2;
+        color: white;
+      }
+      button:hover {
+        background: #357abd;
+      }
+      button.secondary {
+        background: #e2e8f0;
+        color: #4a5568;
+      }
+      button.secondary:hover {
+        background: #cbd5e0;
+      }
+      button.danger {
+        background: #fc8181;
+        color: white;
+      }
+      button.danger:hover {
+        background: #e53e3e;
+      }
+      button:disabled {
+        opacity: 0.4;
+        cursor: default;
+        background: #e2e8f0;
+        color: #a0aec0;
+      }
+
+      /* char counter */
+      textarea {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 8px;
+        border: 1px solid #cbd5e0;
+        border-radius: 6px;
+        font-size: 14px;
+        resize: vertical;
+      }
+      .char-info {
+        font-size: 13px;
+        color: #718096;
+        margin-top: 4px;
+      }
+      .char-info.warn {
+        color: #e53e3e;
+        font-weight: bold;
+      }
+
+      /* todo */
+      input[type="text"] {
+        padding: 8px 12px;
+        border: 1px solid #cbd5e0;
+        border-radius: 6px;
+        font-size: 14px;
+        width: 100%;
+        box-sizing: border-box;
+      }
+      .add-row {
+        display: flex;
+        gap: 8px;
+        margin-bottom: 12px;
+      }
+      .add-row input {
+        flex: 1;
+      }
+      .todo-item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 8px 0;
+        border-bottom: 1px solid #f0f0f0;
+      }
+      .todo-item:last-child {
+        border: none;
+      }
+      .todo-item.done span {
+        color: #a0aec0;
+        text-decoration: line-through;
+      }
+      .todo-item span {
+        flex: 1;
+        cursor: pointer;
+      }
+      .todo-delete {
+        background: none;
+        border: none;
+        color: #fc8181;
+        cursor: pointer;
+        font-size: 18px;
+        padding: 0 4px;
+      }
+      .todo-delete:hover {
+        color: #e53e3e;
+      }
+      .todo-stats {
+        font-size: 13px;
+        color: #718096;
+        margin-top: 8px;
+      }
+      .empty-state {
+        color: #a0aec0;
+        font-size: 14px;
+        padding: 12px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Lesson 13: Events and state</h1>
+
+    <h2>1. Лічильник</h2>
+    <section>
+      <div class="counter-value" id="counter-display">0</div>
+      <div class="counter-buttons">
+        <button id="btn-decrement" class="secondary">−</button>
+        <button id="btn-reset" class="danger">reset</button>
+        <button id="btn-increment">+</button>
+      </div>
+    </section>
+
+    <h2>2. Live preview</h2>
+    <section>
+      <textarea
+        id="bio-input"
+        rows="3"
+        maxlength="150"
+        placeholder="Розкажіть про себе..."
+      ></textarea>
+      <div class="char-info" id="char-info">0 / 150</div>
+    </section>
+
+    <h2>3. Список задач</h2>
+    <section>
+      <div class="add-row">
+        <input type="text" id="todo-input" placeholder="Нова задача..." />
+        <button id="btn-add">Додати</button>
+      </div>
+      <div id="todo-list"></div>
+      <div class="todo-stats" id="todo-stats"></div>
+    </section>
+
+    <script src="./index.js"></script>
+  </body>
+</html>
