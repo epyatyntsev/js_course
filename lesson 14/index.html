@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lesson 14</title>
+    <style>
+      body {
+        font-family: sans-serif;
+        padding: 40px;
+        max-width: 600px;
+      }
+      h2 {
+        margin-top: 48px;
+      }
+      section {
+        border: 1px solid #e2e8f0;
+        border-radius: 8px;
+        padding: 20px;
+        margin-bottom: 24px;
+      }
+
+      label {
+        display: block;
+        font-size: 13px;
+        color: #4a5568;
+        margin-bottom: 4px;
+        margin-top: 12px;
+      }
+      input[type="text"] {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 8px 12px;
+        border: 1px solid #cbd5e0;
+        border-radius: 6px;
+        font-size: 14px;
+      }
+      .row {
+        display: flex;
+        gap: 8px;
+        margin-top: 16px;
+      }
+      button {
+        padding: 8px 20px;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 14px;
+        background: #4a90e2;
+        color: white;
+      }
+      button:hover {
+        background: #357abd;
+      }
+      button:disabled {
+        opacity: 0.4;
+        cursor: default;
+        background: #e2e8f0;
+        color: #a0aec0;
+      }
+      button.secondary {
+        background: #e2e8f0;
+        color: #4a5568;
+      }
+      button.secondary:hover {
+        background: #cbd5e0;
+      }
+
+      .profile-display {
+        background: #f7fafc;
+        border-radius: 6px;
+        padding: 12px 16px;
+        margin-top: 16px;
+        font-size: 14px;
+      }
+      .profile-display span {
+        font-weight: bold;
+        color: #2d3748;
+      }
+
+      .history-list {
+        margin-top: 16px;
+      }
+      .history-item {
+        font-size: 13px;
+        color: #718096;
+        padding: 6px 0;
+        border-bottom: 1px solid #f0f0f0;
+      }
+      .history-item:last-child {
+        border: none;
+      }
+      .history-label {
+        font-size: 12px;
+        color: #a0aec0;
+        margin-bottom: 4px;
+      }
+      .empty-state {
+        font-size: 13px;
+        color: #a0aec0;
+        padding: 8px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Lesson 14: Immutability</h1>
+
+    <h2>Редагування профілю з історією змін</h2>
+    <section>
+      <label for="input-name">Ім'я</label>
+      <input type="text" id="input-name" placeholder="Введіть ім'я" />
+
+      <label for="input-city">Місто</label>
+      <input type="text" id="input-city" placeholder="Введіть місто" />
+
+      <div class="row">
+        <button id="btn-save">Зберегти</button>
+        <button id="btn-undo" class="secondary" disabled>Скасувати</button>
+      </div>
+
+      <div class="profile-display" id="profile-display"></div>
+
+      <div class="history-list">
+        <div class="history-label">Історія змін</div>
+        <div id="history-list"></div>
+      </div>
+    </section>
+
+    <script src="./index.js"></script>
+  </body>
+</html>
