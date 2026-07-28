@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lesson 15</title>
+    <style>
+      body {
+        font-family: sans-serif;
+        padding: 40px;
+        max-width: 600px;
+      }
+      h2 {
+        margin-top: 48px;
+      }
+      section {
+        border: 1px solid #e2e8f0;
+        border-radius: 8px;
+        padding: 20px;
+        margin-bottom: 24px;
+      }
+      .row {
+        display: flex;
+        gap: 8px;
+        margin-bottom: 16px;
+      }
+      button {
+        padding: 8px 20px;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 14px;
+        background: #4a90e2;
+        color: white;
+      }
+      button:hover {
+        background: #357abd;
+      }
+      button:disabled {
+        opacity: 0.4;
+        cursor: default;
+        background: #e2e8f0;
+        color: #a0aec0;
+      }
+      button.secondary {
+        background: #e2e8f0;
+        color: #4a5568;
+      }
+
+      .message-box {
+        padding: 10px 14px;
+        border-radius: 6px;
+        font-size: 14px;
+        line-height: 1.6;
+        background: #f7fafc;
+        color: #718096;
+        margin-bottom: 8px;
+      }
+      .message-box.success {
+        background: #f0fff4;
+        color: #276749;
+      }
+      .message-box.error {
+        background: #fff5f5;
+        color: #c53030;
+      }
+      .message-box b {
+        font-size: 16px;
+      }
+
+      .user-card {
+        padding: 14px 16px;
+        border-radius: 6px;
+        background: #f7fafc;
+        font-size: 14px;
+        line-height: 1.8;
+      }
+      .user-card .name {
+        font-size: 17px;
+        font-weight: bold;
+        color: #2d3748;
+      }
+
+      .spinner {
+        display: inline-block;
+        width: 14px;
+        height: 14px;
+        border: 2px solid #e2e8f0;
+        border-top-color: #4a90e2;
+        border-radius: 50%;
+        animation: spin 0.7s linear infinite;
+        vertical-align: middle;
+        margin-right: 8px;
+      }
+      @keyframes spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Lesson 15: Асинхронність</h1>
+
+    <h2>1. Завантаження даних</h2>
+    <section>
+      <div class="row">
+        <button id="btn-load">Завантажити користувача</button>
+        <button id="btn-error" class="secondary">Викликати помилку</button>
+      </div>
+      <div id="user-result"></div>
+    </section>
+
+    <h2>2. Послідовно vs паралельно</h2>
+    <section>
+      <div class="row">
+        <button id="btn-seq">Послідовно</button>
+        <button id="btn-par">Паралельно</button>
+      </div>
+      <div id="timing-seq"></div>
+      <div id="timing-par"></div>
+    </section>
+
+    <script src="./index.js"></script>
+  </body>
+</html>
